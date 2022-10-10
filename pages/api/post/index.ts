@@ -13,5 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.status(200).json(data)
 
+  } else if (req.method === 'POST') {
+    const document = req.body
+
+    client.create(document).then(() => res.status(200).json('Video Created'))
   }
 }
